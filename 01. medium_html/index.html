@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>medium</title>
+    <link rel="icon" href="./pics/medium_icon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <section>
+      <div>
+        <div>
+          <div>
+            <h1>CSS vs CSS-in-JS Performance</h1>
+          </div>
+          <p>Time to face the brutal truth</p>
+          <figure>
+            <div>
+              <div>
+                <picture
+                  ><source type="image/webp" />
+                  <source />
+                  <img style="width: 60%" src="/pics/pic001.webp"
+                /></picture>
+              </div>
+            </div>
+          </figure>
+          <p>
+            Ever wanted to redo CSS all over again, but with a new
+            tool/framework?
+          </p>
+          <h1>What is it?</h1>
+          <p>
+            `styled-components` is a CSS-in-JS styling framework that uses
+            tagged tiplate literals in JavaScript and the power of CSS to
+            provide a platform that allows you to write actual CSS to style
+            react components, while being boasted about its developer experience
+            (also known as DX) and performance.
+          </p>
+          <p>
+            But is the hype well-deserved or are developers being led astray?
+          </p>
+          <p>Let’s get the first thing out of the way.</p>
+          <p>
+            You basically write CSS, but in Javascript. You can actually name
+            your tags so it’s easier to identify thi. Just for that, this tool
+            is an automatic 10/10 for most React developers (myself included).
+          </p>
+          <p>
+            You can also change the values of properties with Javascript. This
+            is great for apps with dynamic content.
+          </p>
+          <h1>So then why not use styled-components for all projects?</h1>
+          <p>
+            The question I want to pose, would people still use it if they knew
+            they are leaving 30% or more money on the table? No, they wouldn’t
+            care about it at all.
+          </p>
+          <p>
+            But in certain cases, it
+            <strong>does</strong> affect the revenue of your app. One thing I
+            learned during my time creating web apps for phones is that
+            <strong>NOT</strong> all people (<i>surprinsingly</i>) use the
+            latest iPhone. There are still people who use devices with Android
+            4.4.4. I know, unbelievable!!!
+          </p>
+          <p>
+            So before you create your new project with this technology (or
+            before you change the current one in production), take a minute and
+            consider how important is performance to your app.
+          </p>
+          <p>
+            I couldn’t really find on the internet an article which talked about
+            this, but it made sense to test the hypothesis that modular CSS may
+            be more performant. So I spent a few days and switched the entire
+            codebase of an in production app from styled-components to modular
+            CSS.
+          </p>
+          <h1>Pain points of styled-components</h1>
+          <ul>
+            <li>one extra package</li>
+            <li>bigger JS bundle</li>
+            <li>
+              affecting CSS performance? (what we’re trying to find out here)
+            </li>
+            <li>CSS files and JS files are not processed the same</li>
+          </ul>
+          <h1>How I measured</h1>
+          <p>
+            The process was pretty straight-forward, but of course I had some
+            road blocks, more specifically where more logic was involved in the
+            styling. The tests show the average between 3 runs on both
+            Lighthouse and the Performance tab on Chrome. I have set throttling
+            to
+            <i>Slow 3G</i> and CPU throttling to
+            <i>4x.</i>
+          </p>
+          <p>
+            Without further ado, let’s see what Lighthouse had to say about the
+            changes:
+          </p>
+          <h1>Lighthouse performance audit</h1>
+          <h2>Styled Components Performance</h2>
+          <p>
+            Average performance range: 13809 ms<br />FCP: 2.2<br />SI: 9.1<br />LCP:
+            13.1<br />TTI: 13.2
+          </p>
+          <h2>Modular CSS Performance</h2>
+          <p>
+            Average performance range: 8995 ms<br />FCP: 2.1<br />SI: 7.6<br />LCP:
+            12<br />TTI: 12.5
+          </p>
+          <p>
+            Wow, this is a very big difference, considering it’s almost the same
+            CSS. In the performance range, we are saving 4814 ms, almost 5
+            seconds! A 35% reduction. That’s insane!
+          </p>
+          <p>
+            The boost in Speed Index and the other metrics is also pretty big,
+            considering the fact that CSS rules are not changed at all.
+          </p>
+          <p>
+            Of course, this increase happens with older devices, so don’t expect
+            the latest phone to have the same metrics, but it paints the picture
+            needed for us. If your product is used by people who use lower-end
+            phones, you are missing on revenue.
+          </p>
+          <h1>Conclusion</h1>
+          <p>
+            You can use both technologies in React and achieve amazing websites.
+            It’s just a matter of selecting the right tool for the right job.
+          </p>
+          <p>
+            If you have a very highly customizable dashboard, where your usual
+            users are on a desktop, it may not make sense to change your
+            codebase to modular CSS. Whereas, if your users come from mobile
+            devices, I would suggest to try and see how faster your website is
+            with modular CSS.
+          </p>
+          <p>
+            I’m expecting to see some of your personal results in the comments!
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
